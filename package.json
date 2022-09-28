@@ -1,0 +1,31 @@
+{
+  "name": "upstox-master-contracts",
+  "version": "1.0.0",
+  "description": "It allows to download upstox master contracts as JSON",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechfaneTechnologies/upstox-master-contracts.git"
+  },
+  "keywords": [
+    "upstox",
+    "master",
+    "contracts",
+    "master-contracts",
+    "upstox-master-contracts",
+    "drjunemoone",
+    "enchantress",
+    "moonedrjune"
+  ],
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "node-fetch": "^2.6.1",
+    "path": "^0.12.7",
+    "prettier": "^2.6.1"
+  },
+  "author": "drjunemoone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TechfaneTechnologies/upstox-master-contracts/issues"
+  },
+  "homepage": "https://github.com/TechfaneTechnologies/upstox-master-contracts#readme",
+}
