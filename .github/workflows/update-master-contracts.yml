@@ -1,0 +1,34 @@
+name: Update Upstox Master Contracts
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron:  '0 3 1-31 1-12 1-6'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env: 
+      CI_COMMIT_MESSAGE: Updated Upstox Master Contracts
+      CI_COMMIT_AUTHOR: DrJuneMoone
+    steps:
+    - uses: actions/checkout@v3
+
+    # Build steps
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16' 
+    - name: Node Install
+      run: npm install
+    - name: Node Build (lint, test, coverage, doc, build, package)
+      run: node FetchUpstoxMasterScript.js
+
+    # Commit and push all changed files.
+    - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
+      # Only run on main branch push (e.g. after pull request merge).
+      if: github.event_name == 'push'
+      run: |
+        git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+        git config --global user.email "MooneDrJune@users.noreply.github.com"
+        git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+        git push
