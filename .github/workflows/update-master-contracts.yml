@@ -22,9 +22,9 @@ jobs:
     - name: Node Install
       run: npm install
     - name: Fetch Updated Upstox Master Contracts And Generate JSON Files
-      run: node FetchUpstoxMasterScript.js
+      run: rm json/*.json && node FetchUpstoxMasterScript.js
     - name: Generate CSV Files From Downloaded JSON Files
-      run: node GenerateCSV.js
+      run: rm csv/*.csv && node GenerateCSV.js
 
     # Commit and push all changed files.
     - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
